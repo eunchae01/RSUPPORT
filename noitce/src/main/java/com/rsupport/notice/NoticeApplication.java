@@ -1,4 +1,4 @@
-package com.rsupport.noitce;
+package com.rsupport.notice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
