@@ -17,21 +17,13 @@
 - [[2] Getting Started](#2-getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
-  - [Configuration](#configuration)
 - [[3] Usage](#3-usage)
-- [[4] Contribution](#4-contribution)
-- [[5] Acknowledgement](#5-acknowledgement)
-- [[6] Contact](#6-contact)
-- [[7] License](#7-license)
+- [[4] Contact](#4-contact)
 
 
 
 # [1] About the Project
-*다음 내용을 고려하여 프로젝트에 대한 **전반적인 정보**를 적으세요.*
-
-- ❗️짧은❗️ 도입부/제작 동기
-- 무슨 프로젝트인지
-- 왜 이 프로젝트를 사용해야하는지
+- 공지사항 등록, 수정, 삭제, 조회 API 구현
 
 ## Features
 *강조하고 싶은 **주요 기능**이나 **차별성 있는 특징**을 적으세요.*
@@ -47,26 +39,17 @@
 
 
 # [2] Getting Started
+## Prerequisites
+H2 DATA BASE 설치(All Platforms) (ID : sa, PWD: 1234)
+```bash
+https://www.h2database.com/html/main.html
+```
+
 ## Installation
-1. Repository 클론
+Repository 클론
 ```bash
 git clone https://github.com/eunchae01/RSUPPORT.git
 ```
-2. H2 DATA BASE 설치
-```bash
-https://www.h2database.com/html/main.html (All Platforms 설치)
-
-H2 ID : sa, PWD: 1234
-```
-
-## Configuration
-*코드의 어느 부분을 채우거나 수정해야하는지 설명하세요.*
-- `config.js`에 Openweather API key를 입력
-```bash
-const API_KEY = "<Your API key>";
-```
-
-
 
 # [3] Usage
 ***스크린샷, 코드** 등을 통해 **사용 방법**과 **사용 예제**를 보여주세요. 사용 예제별로 h2 헤더로 나누어 설명할 수 있습니다.*
@@ -77,7 +60,7 @@ const API_KEY = "<Your API key>";
 // 몇 개의 API 사용 예제를 코드와 함께 보여주세요.
 ```
 
-# [6] Contact
+# [4] Contact
 - 📧 eunchae01@naver.com
 
 
