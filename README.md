@@ -34,7 +34,7 @@ API/NOTICE
 - DELETE/NOTICE/{ID} : 특정 게시글 삭제
 
 API/ATTACH
-- GET/ATTACH/{ID} : ATTACH ID로 게시글 다운로드 가능(바탕화면에 TESTCHO 폴더가 생성됩니다.)
+- GET/ATTACH/{ID} : ATTACH ID로 첨부파일 다운로드 가능(바탕화면에 TESTCHO 폴더가 생성됩니다.)
 
 RETURN
 - EXCEPTION, RESPONSE, ERRCODE 등의 클래스를 만들어 에러 발생 시에 일정한 구조로 응답을 받을 수 있도록 하였습니다.
