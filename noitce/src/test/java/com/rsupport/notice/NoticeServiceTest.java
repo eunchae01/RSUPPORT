@@ -7,10 +7,16 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalDateTime;
+import java.util.Date;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.*;
+
+@Transactional
 @SpringBootTest
 public class NoticeServiceTest {
     @Mock
@@ -20,16 +26,24 @@ public class NoticeServiceTest {
     private NoticeService noticeService;
 
     @Test
-    public void testGetAllNotice(){
-        List<Notice> noticeList = new ArrayList<>();
+    void testGetNotice(){
+        Notice noticeEntity = new Notice();
 
-        /*noticeList.add(new Notice(1, "title", "1", "2", "3", "4", "5", 0));
+        noticeEntity.setNo(1L);
+        noticeEntity.setTitle("1");
+        noticeEntity.setText("text");
+        noticeEntity.setWriter("writer");
+        noticeEntity.setWriteDate(LocalDateTime.now());
+        noticeEntity.setStartDate(new Date(2022, 8, 8));
+        noticeEntity.setEndDate(new Date(2022, 8, 8));
+        noticeEntity.setHit(0);
 
-        when(noticeRepository.findAll()).thenReturn(noticeList);
+        when(noticeRepository.save(any(Notice.class))).thenReturn(noticeEntity);
 
-        List<NoticeDTO> result = noticeService.getAllNotices();
+        Long insertedNoticeId = noticeService.insertNotice(noticeEntity);
 
-        assertEquals(1, result.size());
-        assertEquals("title", result.get(0).getTitle());*/
+        // THEN
+        assertThat(insertedNoticeId).isNotNull();
+        assertThat(insertedNoticeId).isEqualTo(1L);
     }
 }
