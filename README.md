@@ -10,57 +10,90 @@
 <!-- [![Readme in English][readme-eng-shield]][readme-eng-url] [![View Demo][view-demo-shield]][view-demo-url] [![Report bug][report-bug-shield]][report-bug-url] [![Request feature][request-feature-shield]][request-feature-url] -->
 
 <!--목차-->
+<!-- 
 # Table of Contents
 - [[1] About the Project](#1-about-the-project)
   - [Features](#features)
-  - [Technologies](#technologies)
+  - [🛠️ Tech Stack 🛠️](#🛠️ Tech Stack 🛠️)
 - [[2] Getting Started](#2-getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [[3] Usage](#3-usage)
 - [[4] Contact](#4-contact)
+-->
 
+# About the Project
+공지사항 등록, 수정, 삭제, 조회 API 구현
 
+## :boom: Strategy :boom:
+API/NOTICE
+- GET/NOTICE : 등록된 전체 게시글 조회
+- POST/NOTICE : 게시글 등록
+- GET/NOTICE/{ID} : 특정 게시글 조회
+- PUT/NOTICE/{ID} : 특정 게시글 수정
+- DELETE/NOTICE/{ID} : 특정 게시글 삭제
 
-# [1] About the Project
-- 공지사항 등록, 수정, 삭제, 조회 API 구현
+API/ATTACH
+- GET/ATTACH/{ID} : ATTACH ID로 게시글 다운로드 가능(바탕화면에 TESTCHO 폴더가 생성됩니다.)
 
-## Features
-*강조하고 싶은 **주요 기능**이나 **차별성 있는 특징**을 적으세요.*
-- 최고 멋진 **README**를 쉽게 작성할 수 있도록 *이텔릭체*로 된 **가이드**를 제공
-- 뱃지로 **언어 옵션**을 제공
+RETURN
+- EXCEPTION, RESPONSE, ERRCODE 등의 클래스를 만들어 에러 발생 시에 일정한 구조로 응답을 받을 수 있도록 하였습니다.
 
-## Technologies
-- [SPRING BOOT] 3.2.8
-- [JAVA] 17
-- [DATA BASE] H2
-- [JPA]
+## 🛠️ Tech Stack 🛠️
+<img src="https://img.shields.io/badge/Spring Boot-6DB33F?style=for-the-badge&logo=Spring Boot&logoColor=white"/><img src="https://img.shields.io/badge/3.2.8-6DB33F?style=for-the-badge&logo=3.2.8&logoColor=white"/>
+![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)<img src="https://img.shields.io/badge/17-%23ED8B00.svg?style=for-the-badge&logo=17&logoColor=white"/>
+<img src="https://img.shields.io/badge/Hibernate-59666C?style=for-the-badge&logo=Hibernate&logoColor=white" /><img src="https://img.shields.io/badge/JPA-59666C?style=for-the-badge&logo=JPA&logoColor=white" /> 
+<img src="https://img.shields.io/badge/DB-FFCA28?style=for-the-badge&logo=H2&logoColor=black"/><img src="https://img.shields.io/badge/H2-FFCA28?style=for-the-badge&logo=H2&logoColor=black"/>
+![IntelliJ IDEA](https://img.shields.io/badge/IntelliJIDEA-000000.svg?style=for-the-badge&logo=intellij-idea&logoColor=white)
 
-
-
-# [2] Getting Started
+# Getting Started
 ## Prerequisites
-H2 DATA BASE 설치(All Platforms) (ID : sa, PWD: 1234)
+- H2 DATA BASE 설치(All Platforms) (ID : sa, PWD: 1234)
 ```bash
 https://www.h2database.com/html/main.html
 ```
 
 ## Installation
-Repository 클론
+- Repository 클론
 ```bash
 git clone https://github.com/eunchae01/RSUPPORT.git
 ```
-
-# [3] Usage
-***스크린샷, 코드** 등을 통해 **사용 방법**과 **사용 예제**를 보여주세요. 사용 예제별로 h2 헤더로 나누어 설명할 수 있습니다.*
-
-![usage](img/usage.png)
-
-```java
-// 몇 개의 API 사용 예제를 코드와 함께 보여주세요.
+- 포스트맨 사용 시
+```bash
+BODY / FORMDATA
+KEY : NOTICE, VALUE : {"title" : "test5",
+                    "writer" : "writer5",
+                    "text" : "test5",
+                    "startDate" : "2024-08-04",
+                    "endDate" : "2024-08-05"}
+KEY : FILE, VALUE : 첨부파일 선택
 ```
 
-# [4] Contact
+# Results
+- get/notice 실행 결과
+<img width="307" alt="image" src="https://github.com/user-attachments/assets/327bd3c7-414a-4bdb-9d9b-fd389cb3cf64">
+
+존재하지 않는 게시물인 경우
+
+<img width="326" alt="image" src="https://github.com/user-attachments/assets/313cc3c0-50a4-42b4-bd12-fb2b2f7adb3f">
+
+
+- put/notice/2 실행 결과 
+<img width="336" alt="image" src="https://github.com/user-attachments/assets/ef9b4802-2ecf-4661-bc92-dcf5c84563a9">
+<img width="308" alt="image" src="https://github.com/user-attachments/assets/98ab7859-bca7-4b7b-b0cc-28e5d8943a9f">  
+
+
+- delete/notice/3 실행 결과
+<img width="267" alt="image" src="https://github.com/user-attachments/assets/b60e77b5-136c-42c6-91a4-635627b81be1">
+<img width="318" alt="image" src="https://github.com/user-attachments/assets/e7beb2ef-a58b-4b2f-a0ad-1d5138908cf7">
+
+이미 삭제 된 게시물인 경우 
+
+<img width="299" alt="image" src="https://github.com/user-attachments/assets/b8bc003f-2c63-4fba-a61f-11a06031cad1">
+
+
+
+# :mailbox_with_mail: Contact
 - 📧 eunchae01@naver.com
 
 
