@@ -1,20 +1,29 @@
 package com.rsupport.notice.service;
 
+import com.rsupport.notice.exception.CommonException;
+import com.rsupport.notice.exception.ErrCode;
 import com.rsupport.notice.model.Attach;
 import com.rsupport.notice.repository.AttachRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.util.UriUtils;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -66,6 +75,12 @@ public class AttachService {
         }
     }
 
+    /**
+     * 첨부파일 삭제
+     *
+     * @param noticeNo
+     * @throws IOException
+     */
     @Transactional
     public void deleteAllAttach(Long noticeNo) throws IOException {
         List<Attach> files = attachRepository.findByNoticeNo(noticeNo);
@@ -82,8 +97,15 @@ public class AttachService {
 
             Files.delete(Path.of(file.getSavePath()));
         }
-
     }
 
+    @Transactional
+    public Attach getAttach(Long attachId) {
+        return attachRepository.findById(attachId)
+                .orElseThrow(() -> new CommonException(ErrCode.FILE_NOT_FOUND));
+    }
 
+    public UrlResource getAttachResource(String savePath) throws MalformedURLException {
+        return new UrlResource("file:" + savePath);
+    }
 }

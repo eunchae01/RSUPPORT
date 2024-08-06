@@ -16,7 +16,8 @@ public enum ErrCode {
 
     // Not Found Error
     NOTICE_NOT_FOUND("40401", HttpStatus.NOT_FOUND, "해당 게시물은 존재하지 않습니다."),
-    ALREADY_DELETED("40402", HttpStatus.NOT_FOUND, "이미 삭제된 게시물입니다."),
+    FILE_NOT_FOUND("40402", HttpStatus.NOT_FOUND, "해당 게시물은 존재하지 않습니다."),
+    ALREADY_DELETED("40403", HttpStatus.NOT_FOUND, "이미 삭제된 게시물입니다."),
 
     // UnsupportedMediaType Error
     UNSUPPORTED_MEDIA_TYPE("41500", HttpStatus.UNSUPPORTED_MEDIA_TYPE, "허용되지 않은 파일 형식입니다."),

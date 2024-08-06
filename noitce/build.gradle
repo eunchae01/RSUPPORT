@@ -28,12 +28,10 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly 'org.projectlombok:lombok'
-	// 끙
+
+	// EXCEPTION
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 
-
-
-	//runtimeOnly 'com.oracle.database.jdbc:ojdbc11'
 	runtimeOnly 'com.h2database:h2'
 
 	annotationProcessor 'org.projectlombok:lombok'
